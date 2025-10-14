@@ -1,0 +1,198 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "prevId": "",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.urls": {
+      "name": "urls",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "code": {
+          "name": "code",
+          "type": "varchar(155)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "target_url": {
+          "name": "target_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "urls_code_unique": {
+          "columns": [
+            "code"
+          ],
+          "nullsNotDistinct": false,
+          "name": "urls_code_unique"
+        }
+      },
+      "checkConstraints": {
+        "urls_id_not_null": {
+          "name": "urls_id_not_null",
+          "value": "NOT NULL id"
+        },
+        "urls_code_not_null": {
+          "name": "urls_code_not_null",
+          "value": "NOT NULL code"
+        },
+        "urls_target_url_not_null": {
+          "name": "urls_target_url_not_null",
+          "value": "NOT NULL target_url"
+        },
+        "urls_user_id_not_null": {
+          "name": "urls_user_id_not_null",
+          "value": "NOT NULL user_id"
+        },
+        "urls_created_at_not_null": {
+          "name": "urls_created_at_not_null",
+          "value": "NOT NULL created_at"
+        }
+      },
+      "policies": {},
+      "isRLSEnabled": false
+    },
+    "public.users": {
+      "name": "users",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "first_name": {
+          "name": "first_name",
+          "type": "varchar(55)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "last_name": {
+          "name": "last_name",
+          "type": "varchar(55)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "email": {
+          "name": "email",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "password": {
+          "name": "password",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "salt": {
+          "name": "salt",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "users_email_unique": {
+          "columns": [
+            "email"
+          ],
+          "nullsNotDistinct": false,
+          "name": "users_email_unique"
+        }
+      },
+      "checkConstraints": {
+        "users_id_not_null": {
+          "name": "users_id_not_null",
+          "value": "NOT NULL id"
+        },
+        "users_first_name_not_null": {
+          "name": "users_first_name_not_null",
+          "value": "NOT NULL first_name"
+        },
+        "users_email_not_null": {
+          "name": "users_email_not_null",
+          "value": "NOT NULL email"
+        },
+        "users_password_not_null": {
+          "name": "users_password_not_null",
+          "value": "NOT NULL password"
+        },
+        "users_salt_not_null": {
+          "name": "users_salt_not_null",
+          "value": "NOT NULL salt"
+        },
+        "users_created_at_not_null": {
+          "name": "users_created_at_not_null",
+          "value": "NOT NULL created_at"
+        }
+      },
+      "policies": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  },
+  "internal": {
+    "tables": {}
+  }
+}
